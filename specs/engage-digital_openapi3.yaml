@@ -421,13 +421,13 @@ paths:
         - description: mandatory categorization (Boolean).
           in: query
           name: mandatory
-          required: false
+          required: true
           schema:
             type: boolean
         - description: allow to assign multiple child categories (Boolean).
           in: query
           name: multiple
-          required: false
+          required: true
           schema:
             type: boolean
         - description: post qualification (Boolean).
@@ -780,25 +780,6 @@ paths:
       tags:
         - Sources
   '/content_sources/{sourceId}':
-    get:
-      description: This method renders a source from given id.
-      operationId: getSource
-      parameters:
-        - in: path
-          name: sourceId
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Source'
-          description: Success
-      summary: Getting a source from its id
-      tags:
-        - Sources
     put:
       description: >-
         This method updates an existing source from given attributes and renders
@@ -8728,10 +8709,6 @@ components:
         created_at:
           format: date-time
           type: string
-        extra_data:
-          type: object
-        foreign_id:
-          type: string
         id:
           type: string
         interventions_count:
@@ -8749,6 +8726,7 @@ components:
           type: string
       required:
         - id
+        - updated_at
     TimeSheet:
       properties:
         active:
