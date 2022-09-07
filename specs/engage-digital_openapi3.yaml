@@ -207,7 +207,7 @@ paths:
         Authorization: Only users that have the right to manage topologies.
       operationId: createTopology
       requestBody:
-        required: false
+        required: true
         content:
           application/x-www-form-urlencoded:
             schema:
